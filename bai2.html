@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello </title>
+    <style>
+        table {
+            padding:1rem;
+            width: 60%;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            font-family: 'Arial', Helvetica, sans-serif;
+            font-size: 12px;
+            
+        }
+
+
+        table, th{
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: mediumseagreen;
+        }   
+        table, th, tbody tr td:nth-child(1){      
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            width:50%;
+        }   
+        img{
+            width: 20%;
+            background-size: auto;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="img/img1.jpg"></td>
+                <td>Minh</td>
+                <td><a href=#''>Link 1</a></td>
+            </tr>
+            <tr>
+                <td><img src="img/img2.jpg"></td>
+                <td>Minh</td>
+                <td><a href=#''>Link 1</a></td>
+            </tr>
+            <tr>
+                <td><img src="img/img3.jpg"></td>
+                <td>Minh</td>
+                <td><a href=#''>Link 1</a></td>
+            </tr>   
+            <tr>
+                <td></td>
+                <td><input type="file" id="uploadImg" name="uploadImg"></td>
+                <td><a href=#''></a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html> 
