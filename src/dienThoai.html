@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello </title>
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    
+</head>
+<body>
+    <script>
+        let products=[];
+        let currIndex = 0;
+        let step=3;
+
+        window.onload=function(){
+            loadProducts();
+        }
+
+        function loadProducts(){
+            let xhr = new XMLHttpRequest;
+            xhr.open("GET","product.json",true);
+            xhr.onload=function(){
+                if(xhr.status==200){
+                    products=JSON.parse(xhr.responseText);
+                    showProducts();
+                }
+            }
+            xhr.send();
+        }
+
+        function showProducts(){
+            let html = "";
+            let nextIndex = currIndex+step;
+            let list = products.slice(currIndex, nextIndex);
+            list.forEach(l=>{
+                html += `
+                    <div style="float:left; margin-top:12px; width:33%; text-align: center">
+                        <div id='loading' ></div>
+                        <img src="${l.img}" width="220px" />
+                         <h5>${l.name}</h5>
+                         <p>${l.price}</p>
+                    </div>
+                `
+            });
+
+            document.getElementById("product-list").innerHTML = html;
+            currIndex = nextIndex;
+        }
+
+        function showMore(){
+
+            setTimeout(()=>{
+                showProducts();
+                
+                document.getElementById("loading").innerHTML = `<img src="img/loading.gif" width=50/>`;
+                document.getElementById("loadBtn").disabled = true;
+
+                if(currIndex>=products.length){
+                    document.getElementById("loadBtn").style.display = "none";
+                    document.getElementById("loadBtn").innerHTML = "Da het san pham";
+                }
+            },2000)
+        }
+    </script>
+
+<div style="width:100%; align-items: center;">
+        <button onclick="showMore()">Show more</button>  
+</div>
+
+<h2>Danh sach dien thoai</h2>
+
+<div id="product-list" style="width: 90%; margin: auto">
+    
+ 
+    
+</div>
+
+
+
+</body>
+</html>

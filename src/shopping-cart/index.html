@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QL DT</title>
+ 
+</head>
+<body>
+   
+
+<table border="1" width="600">
+    <thead>
+        <tr>
+            <th></th>
+            <th>SKU</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody id="cart-body"></tbody>
+</table>
+
+<script>
+    var cart = [
+        {name:'SONY', price:'$5300', img:"img/iPhone-14.jpg",quantity:4},
+        {name:'TOSHIBA', price:'$5300', img:"img/acer.png", quantity:2},
+        {name:'LG', price:'$5300', img:'img/iphone-17.jpg',quantity:3},
+        {name:'SAMSUNG', price:'$5300', img:'img/samsung.png', quantity:6},
+        {name:'LENOVO', price:'$5300', img:'img/iphone-16.png', quantity:3}
+    ]
+
+    if(localStorage.getItem('cart')==null){
+        localStorage.setItem('cart',JSON.stringify(cart));
+    }
+
+    var cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function clear(){
+        localStorage.clear();
+    }
+
+    console.log("cart",cartData);    
+
+    function renderCart(){
+        var tblBody = document.getElementById("cart-body");
+        let html="";
+        
+        if(cart.length===0){
+            html = `
+                <tr>
+                    <th colspan="5">
+                        Khong co san pham
+                    </th>
+                </tr>
+            `;
+        }
+        else{
+            cartData.forEach((item ,index)=> {
+                html += `
+                <tr>
+                    <td>
+                        <input type="checkbox" ${item.checked} ? "checked" : ""
+                        onchange="toggleItem(${index}, this.checked)"
+                        />
+                    </td>
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td><center><img src="${item.img}" width="50%" /></center></td>
+                    <td><input type="number" width='90%' name="qty" onchange="updateQty(${index},this.value)" value="${item.quantity}"/></td>
+                </tr>
+
+                `;
+            }); 
+            tblBody.innerHTML=html;
+        }
+    }
+
+    function updateQty(index, newQty){
+        cart[index].quantity = Number(newQty);
+        localStorage.clear();
+        localStorage.setItem("cart",JSON.stringify(cart));
+    }
+
+    
+
+    function toggleItem(index, checked){
+        cart[index].checked = checked;
+        saveCart();
+    }
+
+    function toggleAll(checkbox){
+        cart.forEach(item=>{
+            item.checked = checkbox.checked;
+        });
+
+        saveCart();
+        renderCart();
+    }
+
+    function deleteSelected(){
+        cart = cart.filter(item => !item.checked);
+        saveCart();
+        renderCart();
+    }
+
+
+    renderCart();
+    //localStorage.setItem("cart",JSON.stringify(cart));
+
+   
+</script>
+</body>
+</html>

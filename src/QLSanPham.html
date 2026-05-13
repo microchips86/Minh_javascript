@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quan Ly Dien Thoai</title>
+    
+    
+</head>
+<body>
+    <script>
+        let products=[];
+        let currIndex = 0;
+        let step=3;
+
+        window.onload=function(){
+            loadProducts();
+        }
+
+        function loadProducts(){
+            let xhr = new XMLHttpRequest;
+            xhr.open("GET","product.json",true);
+            xhr.onload=function(){
+                if(xhr.status==200){
+                    products=JSON.parse(xhr.responseText);
+                    showProducts();
+                }
+            }
+            xhr.send();
+        }
+
+        function renderProductsTbl(){
+            let orderTable = document.getElementById("order-table");
+            
+            let html = "";
+            let nextIndex = currIndex+step;
+            let list = products.slice(currIndex, nextIndex);
+
+            products.forEach((p,index)=>{
+                let row = `
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                
+                `
+            });
+
+            // list.forEach(l=>{
+            //     html += `
+            //         <div style="float:left; margin-top:12px; width:33%; text-align: center">
+            //             <div id='loading' ></div>
+            //             <img src="${l.img}" width="220px" />
+            //              <h5>${l.name}</h5>
+            //              <p>${l.price}</p>
+            //         </div>
+            //     `
+            // });
+
+            document.getElementById("product-list").innerHTML = html;
+            currIndex = nextIndex;
+        }
+
+        function showMore(){
+
+            setTimeout(()=>{
+                showProducts();
+                
+                document.getElementById("loading").innerHTML = `<img src="img/loading.gif" width=50/>`;
+                document.getElementById("loadBtn").disabled = true;
+
+                if(currIndex>=products.length){
+                    document.getElementById("loadBtn").style.display = "none";
+                    document.getElementById("loadBtn").innerHTML = "Da het san pham";
+                }
+            },2000)
+        }
+    </script>
+
+
+
+<h2>Quan Ly dien thoai</h2>
+
+<div style="width:100%; align-items: center;">
+        <button onclick="orderProduct()">Dat hang</button>  
+</div>
+
+<table border="1" width="600">
+    <thead>
+        <tr>
+            <th>Dien Thoai</th>
+            <th>So Luong</th>
+            <th>Tong Tien</th>
+        </tr>
+    </thead>
+    <tbody id="order-table"></tbody>
+</table>
+    
+ 
+    
+</div>
+
+
+
+</body>
+</html>

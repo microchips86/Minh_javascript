@@ -1,0 +1,37 @@
+[
+    {
+        "name":"iphone 16",
+        "price": 5900,
+        "img":"img/iphone-16.png"
+    },
+    {
+        "name":"SONY",
+        "price":9000,
+        "img":"img/iPhone-14.jpg"
+    },
+    {
+        "name":"Samsung",
+        "price":9000,
+        "img":"img/iphone-17.jpg"
+    },
+    {
+        "name":"Nokia",
+        "price": 5900,
+        "img":"img/iphone-16.png"
+    },
+    {
+        "name":"Motorola",
+        "price":6000,
+        "img":"img/iPhone-14.jpg"
+    },
+    {
+        "name":"Samsung A25",
+        "price":3000,
+        "img":"img/iphone-17.jpg"
+    },
+    {
+        "name":"ASUS",
+        "price":19000,
+        "img":"img/iphone-17.jpg"
+    }
+]

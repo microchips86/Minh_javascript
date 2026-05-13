@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello </title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+       
+        /* nav{
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            background-color: aquamarine;
+            color:brown;
+
+        }  */
+
+        nav{
+            position: sticky;
+            top: 0; 
+            width: 100%;
+            background-color: rgb(153, 6, 18);
+            color:#fff;
+
+        }  
+
+
+        .box_static {
+            position: static;
+            width: 100px;
+            border: solid 1px #000;
+        }
+
+        .box_relative{
+            position: relative;
+            width: 100px;
+            top: 20px; left: 30px;
+            border: solid 1px #000;
+        }
+
+    </style>
+    
+       
+    <link rel="stylesheet" type="text/css" href="css/flex.css">
+</head>
+<body>
+    <nav>
+        Trang chu  |   Tin Tuc   |    Lien he
+    </nav>
+
+        <h2>Flex box</h2>
+
+        <div class="container1">
+            <div class="item1">DELL</div>
+            <div class="item1">LENOVO</div>
+            <div class="item1">PANASONIC</div>
+        </div>
+
+         <div class="container2">
+            <div class="item2">DELL</div>
+            <div class="item2">LENOVO</div>
+            <div class="item2">PANASONIC</div>
+        </div>
+
+   <div class="container4">
+            <div class="item4">DELL</div>
+            <div class="item4">LENOVO</div>
+            <div class="item4">PANASONIC</div>
+             <div class="item4">DELL</div>
+            <div class="item4">LENOVO</div>
+            <div class="item4">PANASONIC</div>
+        </div>
+
+
+   <div class="container-partner">
+            <div class="item-partner">
+                <img src="img/sony.png" alt="sony"/>
+            </div>
+            <div class="item-partner">
+                <img src="img/hp.png" alt="sony"/>
+            </div>
+            <div class="item-partner">
+                <img src="img/acer.png" alt="sony"/>
+            </div>
+            <div class="item-partner">
+                <img src="img/asus.png" alt="sony"/>
+            </div>
+            <div class="item-partner">
+                <img src="img/mitsu.png" alt="sony"/>
+            </div>
+            <div class="item-partner">
+                <img src="img/lg.png" alt="sony"/>
+            </div>
+    </div
+
+<div class="container-avatar">
+    <div class="item-avatar">
+        <img src="img/person.png" width="100px"/>
+        <h3>Ten avatar</h3>
+        <p class="colorBrown">dsfas klsfdjsa</p>
+        <p class="textP">Fsdafjkskdfja jkhdfa io akj uew s;ajfae</p>
+    </div>
+
+    <div class="item-avatar">
+        <img src="img/person.png" width="100px"/>
+        <h3>Ten avatar</h3>
+        <p class="colorBrown">dsfas klsfdjsa</p>
+        <p class="textP">Fsdafjkskdfja jkhdfa io akj uew s;ajfae</p>
+    </div>
+
+    <div class="item-avatar">
+        <img src="img/person.png" width="100px"/>
+        <h3>Ten avatar</h3>
+        <p class="colorBrown">dsfas klsfdjsa</p>
+        <p class="textP">Fsdafjkskdfja jkhdfa io akj uew s;ajfae</p>
+    </div>
+
+</div>
+
+
+    <h2>position</h2>
+    
+        <div class="box_static">Box Static</div>
+       <div class="box_relative">Box Relative</div>
+
+       <div class="box-scroll-top">
+        <img src="img/" width="100%" alt="scroll-top"/>
+       </div>
+
+</body>
+</html>

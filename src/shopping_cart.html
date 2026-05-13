@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello </title>
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <script src="../Minh_javascript/asset/js/bai1.js"></script>
+</head>
+<body>
+   
+
+<table border="1" width="600">
+    <thead>
+        <tr>
+            <th>Dien Thoai</th>
+            <th>So Luong</th>
+            <th>Tong Tien</th>
+        </tr>
+    </thead>
+    <tbody id="cart-table"></tbody>
+</table>
+
+<script>
+    var cart = [
+        {name:'SONY', price:'$5300', quantity:4},
+        {name:'TOSHIBA', price:'$5300', quantity:4},
+        {name:'LG', price:'$5300', quantity:4},
+        {name:'SAMSUNG', price:'$5300', quantity:4},
+        {name:'LENOVO', price:'$5300', quantity:4}
+
+       
+
+    ]
+
+     localStorage.setItem("cart",JSON.stringify(cart));
+
+     var cartDta = JSON.parse(localStorage.getItem("cart")) || [];
+
+    var tblBody = document.getElementById("cart-table");
+    let html='';
+
+    cartDta.forEach(e => {
+        html += `
+        <tr>
+            <td>${e.name}</td>
+            <td>${e.price}</td>
+            <td>${e.quantity}</td>
+        </tr>
+        `
+        
+    });
+    tblBody.innerHTML=html;
+</script>
+</body>
+</html>

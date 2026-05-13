@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello </title>
+    <link rel="stylesheet" type="text/css" href="../Minh_javascript/asset/bootstrap/css/bootstrap.min.css">
+    <script src="../Minh_javascript/asset/js/bai1.js"></script>
+
+</head>
+<body>
+   <h3 id="messg">Chao cac ban</h3>
+
+
+  <button class="btn btn-primary mb-5" onclick="changeColor()">Doi mau</button><br/>
+  <button class="btn btn-primary mb-5" onclick="inNoiDung()">In noi dung</button><br/>
+  <button class="btn btn-primary mb-5" onclick="inNoiDungCu()">Quay lai noi dung cu</button><br/>
+
+  <script>
+        function changeColor(){
+            var msg=document.getElementById('messg');
+            if(msg.style.color=='blue'){
+                msg.style.color = 'red';
+            }
+            else{
+                msg.style.color='blue';
+            }
+        }
+
+        function inNoiDung(){
+            document.getElementById('messg').innerHTML='Chao tat ca cac ban';
+        }
+
+        function inNoiDungCu(){
+            document.getElementById('messg').innerHTML='Chao cac ban';
+        }
+
+  </script>
+
+</body>
+</html>

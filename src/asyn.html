@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello </title>
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <script src="../Minh_javascript/asset/js/bai1.js"></script>
+</head>
+<body>
+    <script>
+      function NganHang(callback){
+        console.log("Lay so thu tu...");
+        setTimeout(function(){
+            console.log("Den luot ban");
+            callback(),2000
+        });
+      }
+
+
+      function khachHang(name){
+            console.log("Khach hang "+name+" vao giao dich");
+      }
+
+      function khachHangKhac(){
+            console.log("Khach hang vao giao dich");
+      }
+
+      NganHang(khachHang);
+      NganHang(khachHang("An"));
+
+    </script>
+<script>
+    function BatDongBo(){
+        setTimeout(()=>{
+            document.getElementById("step").innerHTML = "Buoc 2";
+        })
+    }
+</script>
+
+<button onclick="NganHang(khachHang)">Run Asynchronous</button>  
+
+<div id="step"></div>
+
+</body>
+</html>
